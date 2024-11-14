@@ -1,17 +1,26 @@
-import java.util.Scanner;
+public static boolean isPrime(int N) {
+    // 1 is not a prime number
+    if (N == 1) {
+        return false;
+    }
 
-public class Main
-{
-  public static void main(String[] args)
-  {
-    // You can test your method here
-    // System.out.println(isPrime(1));
-    // System.out.println(isPrime(17));
-  }
+    // 2 is the only even prime number
+    if (N == 2) {
+        return true;
+    }
 
-  public static boolean isPrime(int N)
-  {
-    // TODO: Replace and write your code below
-    return false;
-  }
+    // Any even number greater than 2 is not prime
+    if (N % 2 == 0) {
+        return false;
+    }
+
+    // Check from 3 up to the square root of N, skipping even numbers
+    for (int i = 3; i <= Math.sqrt(N); i += 2) {
+        if (N % i == 0) {
+            return false;
+        }
+    }
+
+    // If no divisors were found, it's prime
+    return true;
 }
